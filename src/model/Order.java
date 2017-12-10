@@ -29,32 +29,8 @@ public class Order {
         this.countProduct = countProduct;
     }
 
-    /**
-     * @return the idOrder
-     */
-    public int getIdOrder() {
-        return idOrder;
-    }
 
-    /**
-     * @return the idClient
-     */
-    public int getIdClient() {
-        return idClient;
-    }
 
-    /**
-     * @return the idProduct
-     */
-    public int getIdProduct() {
-        return idProduct;
-    }
 
-    /**
-     * @return the countProduct
-     */
-    public int getCountProduct() {
-        return countProduct;
-    }
     
 }

@@ -5,17 +5,20 @@
  */
 package services;
 
+import model.Order;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class CmdLineService {
- 
 
-    public void showMenu() {
-        
-        
-        
+    ClientServices clientServices = new ClientServices();
+    OrderServices orderServices = new OrderServices();
+    ProductServices productServices =new ProductServices();
+
+    public void mainMenu() {
+
 
            boolean s0 = true;
         do{
@@ -50,8 +53,47 @@ public class CmdLineService {
             }
         }while (s0);
     }
-    public void MenuOrder() {
+    public void MenuClient() {
         boolean s1 = true;
+        do{
+            showMenuClient();
+
+
+            int bt = 100;
+            try{
+                Scanner command = new Scanner(System.in);
+                bt = command.nextInt();
+            }catch (InputMismatchException e){
+
+            }
+            switch (bt){
+                case 1:
+                    clientServices.addClient();
+                    //s = false;//завершить работу
+                    break;
+                case 2:
+                    clientServices.editClient();
+                    // s = false;
+                    break;
+                case 3:
+                    clientServices.delClient();
+                    // s = false;
+                    break;
+                case 4:
+                    clientServices.showAllClient();
+                    // s = false;
+                    break;
+                case 0:
+                    s1 = false;
+                    break;
+                default:
+                    System.out.println("Жми правильно");
+            }
+        }while (s1);
+    }
+    public void MenuOrder() {
+        Order order = new Order();
+        boolean s2 = true;
         do{
             showMenuOrder();
         
@@ -64,32 +106,32 @@ public class CmdLineService {
             }
             switch (bt){
                 case 1:
-                    addOrder();
+                    orderServices.addOrder();
                      //s = false;//завершить работу
                     break;
                 case 2:
-                    editOrder();
+                    orderServices.editOrder();
                     // s = false;
                     break;
                 case 3:
-                    dellOrder();
+                    orderServices.delOrder();
                     // s = false;
                     break;
                  case 4:
-                    showAllOrder();
+                    orderServices.showAllOrder();
                     // s = false;
                     break;    
                  case 0:
-                    s1 = false;
+                    s2 = false;
                     break;
                  default:
                      System.out.println("Жми правильно");
                      
             }
-        }while (s1);
+        }while (s2);
     }
      public void MenuProduct() {
-       boolean s2 = true;
+       boolean s3 = true;
         do{
             showMenuProduct();
                     
@@ -102,67 +144,30 @@ public class CmdLineService {
             }
             switch (bt){
                 case 1:
-                    addProduct();
+                    productServices.addProduct();
                      //s = false;//завершить работу
                     break;
                 case 2:
-                    editProduct();
+                    productServices.editProduct();
                     // s = false;
                     break;
                 case 3:
-                    dellProduct();
+                    productServices.delProduct();
                     // s = false;
                     break;
                  case 4:
-                    showAllProduct();
+                    productServices.showAllProduct();
                     // s = false;
                     break;    
                  case 0:
-                    s1 = false;
-                    break;
-                 default:
-                     System.out.println("Жми правильно");
-            }
-        }while (s2);
-    }
-     public void MenuClient() {
-         boolean s3 = true;
-        do{
-            showMenuClient();
-            
-        
-            int bt = 100;
-            try{
-                Scanner command = new Scanner(System.in);
-                bt = command.nextInt();
-            }catch (InputMismatchException e){
-                
-            }
-            switch (bt){
-                case 1:
-                    addClient();
-                     //s = false;//завершить работу
-                    break;
-                case 2:
-                    editClient();
-                    // s = false;
-                    break;
-                case 3:
-                    dellClient();
-                    // s = false;
-                    break;
-                 case 4:
-                    showAllClient();
-                    // s = false;
-                    break;    
-                 case 0:
-                    s1 = false;
+                    s3 = false;
                     break;
                  default:
                      System.out.println("Жми правильно");
             }
         }while (s3);
     }
+
      
     private void showMenu(){
         System.out.println("*****************************");
@@ -171,6 +176,15 @@ public class CmdLineService {
         System.out.println("3. Работа с клиентом ");
         System.out.println("0. Выход ");
         System.out.println("*****************************"); 
+    }
+    private void showMenuClient(){
+        System.out.println("*****************************");
+        System.out.println("1. Создать клиента ");
+        System.out.println("2. Редактировать клиента ");
+        System.out.println("3. Удалить клиента ");
+        System.out.println("4. Показать все клиенты ");
+        System.out.println("0. Выход ");
+        System.out.println("*****************************");
     }
     private void showMenuOrder(){
         System.out.println("*****************************");
@@ -190,14 +204,6 @@ public class CmdLineService {
         System.out.println("0. Выход ");
         System.out.println("*****************************");   
     }
-    private void showMenuClient(){
-        System.out.println("*****************************");
-        System.out.println("1. Создать клиента ");
-        System.out.println("2. Редактировать клиента ");
-        System.out.println("3. Удалить клиента ");
-        System.out.println("4. Показать все клиенты ");
-        System.out.println("0. Выход ");
-        System.out.println("*****************************");
-    }    
+
     
 }

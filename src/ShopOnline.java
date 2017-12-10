@@ -1,8 +1,7 @@
+import model.Client;
+import model.Order;
+import model.Product;
 import services.CmdLineService;
-import services.CmdMenuProduct;
-import services.CmdMenuClient;
-import services.CmdMenuOrder;
-import services.CmdMenu;
 
 
 public class ShopOnline {
@@ -10,12 +9,14 @@ public class ShopOnline {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        CmdLineService menu = new CmdLineService();
-        menu.showMenu();
-        ///////////////////////
 
-        //
-        //fg
+        Client client = new Client();
+        Order order = new Order();
+        Product product = new Product();
+
+        CmdLineService menu = new CmdLineService();
+        menu.mainMenu();
+
     }
 
 }
