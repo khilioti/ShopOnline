@@ -10,7 +10,7 @@ public class ShopOnline {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        Client client = new Client();
+
         Order order = new Order();
         Product product = new Product();
 
