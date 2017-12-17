@@ -6,9 +6,14 @@
 package services;
 
 import model.Order;
+import model.Client;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.List;
 
 
 public class CmdLineService {
@@ -16,7 +21,7 @@ public class CmdLineService {
     ClientServices clientServices = new ClientServices();
     OrderServices orderServices = new OrderServices();
     ProductServices productServices =new ProductServices();
-
+    private BufferedReader reader;
     public void mainMenu() {
 
 
@@ -24,24 +29,23 @@ public class CmdLineService {
         do{
             
             showMenu();
-            int bt = 100;
             try{
-                Scanner command = new Scanner(System.in);
-                bt = command.nextInt();
+                this.reader = new BufferedReader(new InputStreamReader(System.in));
+
             }catch (InputMismatchException e){
-                
+                System.out.println("Ошибка чтения ввода");
             }
-            switch (bt){
+            switch (readNuber()){
                 case 1:
-                    MenuOrder();
+                    MenuClient();
                      //s = false;//завершить работу
                     break;
                 case 2:
-                    MenuProduct();
+                    MenuOrder();
                     // s = false;
                     break;
                 case 3:
-                    MenuClient();
+                    MenuProduct();
                     // s = false;
                     break;
                  case 0:
@@ -57,16 +61,13 @@ public class CmdLineService {
         boolean s1 = true;
         do{
             showMenuClient();
-
-
-            int bt = 100;
             try{
-                Scanner command = new Scanner(System.in);
-                bt = command.nextInt();
+                this.reader = new BufferedReader(new InputStreamReader(System.in));
+
             }catch (InputMismatchException e){
 
             }
-            switch (bt){
+            switch (readNuber()){
                 case 1:
                     clientServices.addClient();
                     //s = false;//завершить работу
@@ -96,15 +97,13 @@ public class CmdLineService {
         boolean s2 = true;
         do{
             showMenuOrder();
-        
-            int bt = 100;
             try{
-                Scanner command = new Scanner(System.in);
-                bt = command.nextInt();
+                this.reader = new BufferedReader(new InputStreamReader(System.in));
+
             }catch (InputMismatchException e){
                 
             }
-            switch (bt){
+            switch (readNuber()){
                 case 1:
                     orderServices.addOrder();
                      //s = false;//завершить работу
@@ -134,15 +133,14 @@ public class CmdLineService {
        boolean s3 = true;
         do{
             showMenuProduct();
-                    
-            int bt = 100;
+
             try{
-                Scanner command = new Scanner(System.in);
-                bt = command.nextInt();
+                this.reader = new BufferedReader(new InputStreamReader(System.in));
+
             }catch (InputMismatchException e){
                 
             }
-            switch (bt){
+            switch (readNuber()){
                 case 1:
                     productServices.addProduct();
                      //s = false;//завершить работу
@@ -171,9 +169,9 @@ public class CmdLineService {
      
     private void showMenu(){
         System.out.println("*****************************");
-        System.out.println("1. Работа с заказом ");
-        System.out.println("2. Работа с товаром ");
-        System.out.println("3. Работа с клиентом ");
+        System.out.println("1. Работа с клиентом ");
+        System.out.println("2. Работа с заказом ");
+        System.out.println("3. Работа с товаром ");
         System.out.println("0. Выход ");
         System.out.println("*****************************"); 
     }
@@ -203,6 +201,16 @@ public class CmdLineService {
         System.out.println("4. Показать все продукт ");
         System.out.println("0. Выход ");
         System.out.println("*****************************");   
+    }
+    private int readNuber() {
+        int in = 0;
+        try {
+            in = Integer.valueOf(reader.readLine());
+        } catch (NumberFormatException | IOException e) {
+            System.out.println("Неправилный ввод");
+            in = readNuber();
+        }
+        return in;
     }
 
     
