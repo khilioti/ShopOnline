@@ -179,7 +179,7 @@ public class CmdLineService {
         System.out.println("2. Редактировать продукт ");
         System.out.println("3. Удалить продукт ");
         System.out.println("4. Показать все продукты ");
-        System.out.println("0. Выход ");
+        System.out.println("0. Назад ");
         System.out.println("*****************************");   
     }
 
