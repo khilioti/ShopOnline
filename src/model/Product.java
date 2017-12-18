@@ -1,40 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
-/**
- *
- * @author sveta
- */
+
 public class Product {
     private int idProduct;
     private String name;
-    
-    /**
-     *
-     * @param idProduct
-     * @param name
-     */
-    public void setProduct(int idProduct, String name){
-      this.idProduct = idProduct;
-      this.name = name;
-    }
+    private int price;
 
-    /**
-     * @return the idProduct
-     */
+    public Product(int idProduct, String name, int price) {
+        this.idProduct = idProduct;
+        this.name = name;
+        this.price = price;
+    }
+    public void getProduct() {
+        System.out.println("id = [" + this.idProduct + "] name = ["
+                + this.name + "] " + "] price = [" + this.price + "]");
+    }
     public int getIdProduct() {
         return idProduct;
     }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-    
 }

@@ -11,44 +11,43 @@ import java.util.List;
 public class ClientServices {
     List<Client> clients;
     private BufferedReader reader;
-     ClientServices() {
-      this.clients = new ArrayList<>();
-      this.reader = new BufferedReader(new InputStreamReader(System.in));
-
+    
+    ClientServices() { 
+        this.clients = new ArrayList<>();
+        this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
+    
     public void addClient(){
         try{
             System.out.println("Введите ID:");
-            int id = readNuber();
+            int id = readNumber();
             System.out.println("Введите имя:");
             String name = this.reader.readLine();
             System.out.println("Введите фамилию:");
             String surname = reader.readLine();
             System.out.println("Введите возраст:");
-            int age = readNuber();
+            int age = readNumber();
             clients.add(new Client(id, name, surname, age));
 
         }catch (IOException  ignored){}
-
     }
+    
     public void editClient(){
         System.out.println("Введите ID Клиениа для редактирования");
         boolean flag = false;
-        int idClientEdit = readNuber();
-        for (Client clirntSearch : clients) {
-            if(clirntSearch.getIdClient() == idClientEdit) {
-
+        int idClientEdit = readNumber();
+        for (Client clientSearch : clients) {
+            if(clientSearch.getIdClient() == idClientEdit) {
                 try{
                     System.out.println("Введите ID:");
-                    int id = readNuber();
+                    int id = readNumber();
                     System.out.println("Введите имя:");
                     String name = this.reader.readLine();
                     System.out.println("Введите фамилию:");
                     String surname = reader.readLine();
                     System.out.println("Введите возраст:");
-                    int age = readNuber();
-                    clients.set(clients.indexOf(clirntSearch),new Client(id, name, surname, age));
-
+                    int age = readNumber();
+                    clients.set(clients.indexOf(clientSearch),new Client(id, name, surname, age));
                 }catch (IOException  ignored){}
 
                 System.out.println("Клиент Изменен");
@@ -57,16 +56,15 @@ public class ClientServices {
             }
         }
         if (flag == false){ System.out.println("Нет Клиента с таким ID");}
-
     }
 
     public void delClient(){
         System.err.println("Введите ID Клиениа для удаления");
         boolean flag = false;
-         int idClientDell = readNuber();
-        for (Client clirntSearch : clients) {
-           if(clirntSearch.getIdClient() == idClientDell) {
-               clients.remove(clients.indexOf(clirntSearch));
+         int idClientDell = readNumber();
+        for (Client clientSearch : clients) {
+           if(clientSearch.getIdClient() == idClientDell) {
+               clients.remove(clients.indexOf(clientSearch));
                System.out.println("Клиент удален");
                flag = true;
                break;
@@ -79,17 +77,17 @@ public class ClientServices {
     public void showAllClient(){
         for (int i = 0; i < clients.size(); i++) {
             clients.get(i).getClient();
-
-            //System.out.println(clients.indexOf(clients.get(i)));
         }
     }
-    private int readNuber() {
+    
+    private int readNumber() {
         int in = 0;
         try {
             in = Integer.valueOf(reader.readLine());
         } catch (NumberFormatException | IOException e) {
             System.out.println("Неправилный ввод");
-            in = readNuber();
+            in = readNumber();
         }
         return in;
-}}
+    }
+}
