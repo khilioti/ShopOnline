@@ -1,5 +1,6 @@
 package services;
 
+import dao.ClientDB;
 import model.Client;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class ClientServices {
     List<Client> clients;
+    ClientDB db = new ClientDB();
     private BufferedReader reader;
     
     ClientServices() { 
@@ -19,15 +21,16 @@ public class ClientServices {
     
     public void addClient(){
         try{
-            System.out.println("Введите ID:");
-            int id = readNumber();
+           // System.out.println("Введите ID:");
+           //int id = readNumber();
             System.out.println("Введите имя:");
             String name = this.reader.readLine();
             System.out.println("Введите фамилию:");
             String surname = reader.readLine();
             System.out.println("Введите возраст:");
             int age = readNumber();
-            clients.add(new Client(id, name, surname, age));
+          //  clients.add(new Client(id, name, surname, age));
+            db.addClient(new Client(name, surname, age));
 
         }catch (IOException  ignored){}
     }
