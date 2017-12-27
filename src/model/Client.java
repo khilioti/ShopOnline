@@ -36,7 +36,7 @@ public class Client {
 
     public void getClient() {
         System.out.println("id = [" + this.idClient + "] name = [" + this.name + "] " +
-                "surName = [" + this.surName + "] age = [" + this.age + "]");
+                "surname = [" + this.surName + "] age = [" + this.age + "]");
     }
 
     public int getIdClient() {
