@@ -1,12 +1,9 @@
 package services;
 
-import dao.ClientDB;
 import model.Order;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.util.InputMismatchException;
 
 
@@ -177,10 +174,10 @@ public class CmdLineService {
 
     private void showMenuProduct(){
         System.out.println("*****************************");
-        System.out.println("1. Создать продукт ");
-        System.out.println("2. Редактировать продукт ");
-        System.out.println("3. Удалить продукт ");
-        System.out.println("4. Показать все продукты ");
+        System.out.println("1. Создать товар ");
+        System.out.println("2. Редактировать товар ");
+        System.out.println("3. Удалить товар ");
+        System.out.println("4. Показать все товары ");
         System.out.println("0. Назад ");
         System.out.println("*****************************");   
     }

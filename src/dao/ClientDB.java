@@ -1,6 +1,8 @@
 package dao;
 
 import model.Client;
+import model.Product;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +16,11 @@ public class ClientDB {
             connection = DriverManager.getConnection(
                     "jdbc:h2:tcp://localhost/~/ClientDB", "", "");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (org.h2.jdbc.JdbcSQLException e) {
+            System.err.println("Базу запусти ))) Умник!!  Или проверь логин/пароль");
+            System.out.println(e.getLocalizedMessage());
+        } catch (SQLException e) {
+            e.getStackTrace();
         }
     }
 
@@ -78,5 +83,6 @@ public class ClientDB {
             return new ArrayList<>();
         }
     }
+
 
 }
