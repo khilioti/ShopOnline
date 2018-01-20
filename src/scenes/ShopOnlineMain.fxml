@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="250.0" prefWidth="600.0">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="600.0">
+                     <children>
+                        <Pane prefHeight="50.0" prefWidth="600.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Онлайн Магазин " textAlignment="CENTER">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="600.0">
+                     <children>
+                        <HBox prefHeight="196.0" prefWidth="600.0">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="33.0" layoutY="34.0" mnemonicParsing="false" text="Работа с клиентом" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="32.0" layoutY="37.0" mnemonicParsing="false" text="Работа с заказом" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="31.0" layoutY="37.0" mnemonicParsing="false" text="Работа с товаром" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="269.0" layoutY="39.0" mnemonicParsing="false" text="Выход" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
